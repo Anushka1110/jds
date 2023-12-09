@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import {useState} from "react"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = ()=>{
+  const [allValue,setValue] = useState({counter:0})
+
+  const onChangeValue=()=>{
+    let newValue = 0
+    newValue = allValue.counter+1
+    setValue({...allValue,counter:newValue})
+  }
+
+  const onDecValue=()=>{
+    let newValue = 0
+    newValue = allValue.counter-1
+    setValue({...allValue,counter:newValue})
+  }
+
+return(
+  <div className="bg-container">
+      <h1 className="heading">{allValue.counter}</h1>
+      <button type="button" onClick={onChangeValue}>Increment</button>
+      <button type="button" onClick={onDecValue}>Decrement</button>
+  </div>
+)
 }
+export default App
+/*
+import {Routes,Route} from 'react-router-dom'
 
-export default App;
+import Home from './component/Home'
+import About from './component/About'
+import ContactUs from './component/ContactUs'
+
+const App = ()=>{
+  <Routes>
+      <Route path="/"element={}
+  </Routes>
+  }
+
+export default App;*/
